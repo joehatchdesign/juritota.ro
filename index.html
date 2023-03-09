@@ -7,19 +7,24 @@
       body {
         background-color: black;
         margin: 0;
-        padding: 20px;
+        padding: 0;
       }
       .terminal {
         background-color: black;
         color: white;
         font-family: monospace;
         font-size: 18px;
-        padding: 10px;
+        padding: 20px;
         margin: 20px auto;
         border: 2px solid green;
-        height: calc(100vh - 80px);
-        width: 80%;
-        overflow: auto;
+        height: calc(100vh - 44px);
+        width: calc(100vw - 44px);
+        overflow: hidden;
+        box-sizing: border-box;
+      }
+      .output {
+        height: calc(100% - 20px);
+        overflow-y: scroll;
       }
       .blink {
         animation: blinker 0.6s step-start infinite;
@@ -39,7 +44,7 @@
   </head>
   <body>
     <div class="terminal">
-      <div class="output" style="height: 50%;">
+      <div class="output">
         <pre id="tiresult" style="font-size: 9px; background-color: #000000; font-weight: bold; padding: 4px 5px; --fs: 9px;"><b style="color:#000000">0100000001100000111</b><b style="color:#040302">0</b><b style="color:#060503">1</b><b style="color:#050403">1</b><b style="color:#030402">1</b><b style="color:#030303">1</b><b style="color:#030403">0</b><b style="color:#020302">0</b><b style="color:#000202">1</b><b style="color:#010303">101</b><b style="color:#050806">0</b><b style="color:#030605">1</b><b style="color:#020707">1</b><b style="color:#0B1716">0</b><b style="color:#0F1F19">0</b><b style="color:#0D1A15">1</b><b style="color:#09130F">0</b><b style="color:#08110E">1</b><b style="color:#030605">0</b><b style="color:#000101">1</b><b style="color:#000000">11010111101111010011</b>
             <b style="color:#000000">000100001010011</b><b style="color:#0C0806">1</b><b style="color:#3A2518">1</b><b style="color:#805136">1</b><b style="color:#B1774F">0</b><b style="color:#C78B63">0</b><b style="color:#C98E67">1</b><b style="color:#BF8760">1</b><b style="color:#BA8058">1</b><b style="color:#B67852">0</b><b style="color:#B47852">0</b><b style="color:#936340">1</b><b style="color:#0D0C04">1</b><b style="color:#643014">0</b><b style="color:#6C3015">1</b><b style="color:#060903">0</b><b style="color:#61452F">1</b><b style="color:#775436">0</b><b style="color:#09110C">1</b><b style="color:#11231B">1</b><b style="color:#1E3125">1</b><b style="color:#1E3427">1</b><b style="color:#142B1F">1</b><b style="color:#0E221A">0</b><b style="color:#11261E">1</b><b style="color:#0F211C">1</b><b style="color:#0B1A16">0</b><b style="color:#0A1712">1</b><b style="color:#050C0A">0</b><b style="color:#000101">1</b><b style="color:#000000">0101001000111011</b>
             <b style="color:#000000">011111010011</b><b style="color:#080805">1</b><b style="color:#2A2B1A">0</b><b style="color:#887F5E">0</b><b style="color:#A19867">0</b><b style="color:#BBAB7A">0</b><b style="color:#BEA777">1</b><b style="color:#C5A27C">0</b><b style="color:#D49E7F">0</b><b style="color:#C78867">1</b><b style="color:#D79B7D">1</b><b style="color:#CC8A6C">1</b><b style="color:#DA9C80">0</b><b style="color:#D1906D">1</b><b style="color:#D19572">0</b><b style="color:#85573E">1</b><b style="color:#BA6C49">0</b><b style="color:#C37554">1</b><b style="color:#60402E">0</b><b style="color:#C38B67">0</b><b style="color:#C38763">1</b><b style="color:#101911">1</b><b style="color:#0E1E18">1</b><b style="color:#182820">1</b><b style="color:#13231C">1</b><b style="color:#11251C">1</b><b style="color:#162A21">0</b><b style="color:#11251D">1</b><b style="color:#091815">0</b><b style="color:#010A09">0100</b><b style="color:#010908">1</b><b style="color:#010605">1</b><b style="color:#000302">1</b><b style="color:#000000">1011101001101</b>
@@ -71,9 +76,8 @@
             <b style="color:#000000">1000000001100100</b><b style="color:#000102">0</b><b style="color:#000305">1</b><b style="color:#01080B">0</b><b style="color:#010A0F">0</b><b style="color:#010C11">0</b><b style="color:#010E13">1</b><b style="color:#010E14">1</b><b style="color:#00090F">0</b><b style="color:#142126">0</b><b style="color:#BEAEA4">1</b><b style="color:#E5CBC1">1</b><b style="color:#D4B3AA">0</b><b style="color:#D1AEA4">0</b><b style="color:#BE9B8D">1</b><b style="color:#E7C2B6">0</b><b style="color:#E4C2B3">0</b><b style="color:#6C6D6D">0</b><b style="color:#11252E">1</b><b style="color:#010F17">1</b><b style="color:#05202B">0</b><b style="color:#082D3A">1</b><b style="color:#0B2E3A">1</b><b style="color:#0F2E3C">1</b><b style="color:#0C2733">0</b><b style="color:#051C27">0</b><b style="color:#06171F">0</b><b style="color:#5A524C">1</b><b style="color:#4B3A34">1</b><b style="color:#0D0A09">1</b><b style="color:#000000">111110000111010</b>
             <b style="color:#000000">01111100011010101000</b><b style="color:#000101">1</b><b style="color:#000203">1</b><b style="color:#000406">1</b><b style="color:#000609">0</b><b style="color:#000409">0</b><b style="color:#0C1F27">0</b><b style="color:#021219">0</b><b style="color:#020E15">1</b><b style="color:#01080C">1</b><b style="color:#000305">0</b><b style="color:#000102">1</b><b style="color:#000000"> joe hatch is my hero</b>
             </pre>
-        <p><span class="blink">></span> <span id="text"></span></p>
+        <p><span class="blink">></span><span id="text"></span></p>
       </div>
-      <div class="placeholder" style="height: 50%;"></div>
     </div>
     <script>
       const text = "Hello, World! I am Juri Totaro.";
